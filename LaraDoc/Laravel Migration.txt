@@ -14,3 +14,11 @@ Laravel Migration
 	$article->save();
 	
 10. $article = APP\Article::create(['title' => 'New Article', 'body' => 'New Body', 'published_at' => Carbon\Carbon::now()]);	
+
+11. $articles = APP\Article::find(2); 
+
+12. $articles->toArray();
+
+13 $articles->update(['title' => 'New updated title', 'body' => 'New updated Body']);
+
+14 APP\Article::all()->toArray();
