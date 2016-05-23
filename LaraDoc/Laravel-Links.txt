@@ -1,0 +1,36 @@
+https://www.youtube.com/watch?v=lEZ8cnVGVZE&list=PL09BB956FCFB5C5FD&index=2
+
+
+https://www.youtube.com/watch?v=YaT5OgDfhMk
+
+
+https://www.youtube.com/watch?v=oGnlu6VLDVs
+
+
+composer create-project laravel/laravel bbloger --prefer-dist
+
+
+
+echo @php "%~dp0composer.phar" %*>composer.bat
+
+composer install --prefer-dist
+
+composer update
+
+
+php artisan key:generate
+
+
+https://laracasts.com/series/laravel-5-fundamentals/episodes/3
+
+https://laracasts.com/series/laravel-5-from-scratch
+
+
+Usefull Folder Structure :
+
+	1 	/app/Http/routes.php
+	
+	2	/app/Http/Controllers/WelcomeController.php
+	
+	3	/resources/views/sagar.php
+

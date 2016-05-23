@@ -1,0 +1,7 @@
+Laravel Migration
+•	Create new table :
+1.	Php artisan make:migration create_article_table --create="articles"
+2.	Php artisan migrate(make changes)
+3.	composer require doctrine/dbal
+4.	php artisan make:migration add_excert_to_articles_table --table="articles"
+5.	Php artisan migrat:rollback

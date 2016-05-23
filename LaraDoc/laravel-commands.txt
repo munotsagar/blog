@@ -1,0 +1,114 @@
+
+https://www.youtube.com/watch?v=y0y3-m05Emc&index=3&list=PLRnuLZZ5D0KyD1zEpzWEWBzrwW9o_gLIG
+
+Usefull Laravel commands :
+
+1 composer update
+
+2 php artisan key:generate
+
+Generate table :
+
+1 php artisan make:migration create_users_table --create=articles
+	
+
+		The syntax has changed to php artisan make:migration.
+
+		Here are the available make commands.
+
+		make:auth                    Create auth classes for the application
+		make:console                 Create a new Artisan command
+		make:controller              Create a new resource controller class
+		make:filter                  Create a new route filter class
+		make:migration               Create a new migration file
+		make:provider                Create a new service provider class
+		make:request                 Create a new form request class
+
+		You can see a full list of commands by running php artisan list
+
+		You might also be ineterested in the Laravel Generators package.
+
+		To use it with Laravel 5, you'll need to require "way/generators": "~3.0"
+
+		It gives you the following additional commands:
+
+		generate:controller          Generate a controller
+		generate:migration           Generate a new migration
+		generate:model               Generate a model
+		generate:pivot               Generate a pivot table
+		generate:publish-templates   Copy generator templates for user modification
+		generate:resource            Generate a new resource
+		generate:scaffold            Scaffold a new resource (with boilerplate)
+		generate:seed                Generate a database table seeder
+		generate:view                Generate a view
+
+
+after make changes in create table for adding required columns then fire below commands :
+
+	php artisan make:migration add_excert_to_articles_table --table="articles"
+	
+	 php artisan migrate:rollback (To rollback sql changes)
+	
+
+2 php artisan migrate
+
+3 Perform a composer update, then composer dump-autoload
+
+composer dump-autoload
+
+If the above doesn't solve the problem, change the classmap in your composer.json file such that it contains the project-relative path to your php files:
+
+"autoload-dev": {
+    "classmap": [
+        "tests/TestCase.php",
+        "database/seeds/UserTableSeeder.php" //include the file with its path here
+    ]
+}, /** ... */
+
+and soon after, perform a composer dump-autoload, and it should work now like a breeze!
+
+4 Generate Controller Command
+
+	php artisan make:controller PagesController (it will include all the methods in PagesController.php file)
+	
+	php artisan make:controller contactController --plain
+	
+5 Help Command
+
+	php artisan help make:controller
+	
+
+6 php artisan migrate:rollback	
+
+7 composer require doctrine/dbal
+
+8 php artisan make:model Articles
+
+9 php artisan tinker - laravel command line editor
+	
+	We can execute command like :
+	
+			$article = App\Articles::create(['title' => 'New Article', 'body' => 'New Body']);
+			
+	Fetch All the data :
+		
+			App\Articles::all()->__toString();
+			
+	Find the particuler record 
+
+			$article	=	App\Articles::find(2);
+			
+			$article->__toString();
+			
+			$article->body = "Updated";
+			
+			$article->save();
+			
+			$article->update(['title' => 'Again New Article', 'body' => 'Again New Body']);
+
+10 MassAssignmentException error to solve that need to add fields in model class file
+
+11 php artisan make:controller ArticleController --plain
+
+12 composer require illuminate/html
+	
