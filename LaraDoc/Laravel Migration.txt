@@ -5,3 +5,12 @@ Laravel Migration
 3.	composer require doctrine/dbal
 4.	php artisan make:migration add_excert_to_articles_table --table="articles"
 5.	Php artisan migrat:rollback
+6.  php artisan make:model Article
+7.  php artisan tinker
+8.  $articles = APP\Article::where('body', 'some text')->get();
+9.  $article = new APP\Article;
+	$article->title = "Article Title";
+	$article->body = "Article Body";
+	$article->save();
+	
+10. $article = APP\Article::create(['title' => 'New Article', 'body' => 'New Body', 'published_at' => Carbon\Carbon::now()]);	
