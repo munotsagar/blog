@@ -12,6 +12,17 @@ class WelcomeController extends Controller
     {
         $first = "Sagar";
         $last = "Munot";
-        return view('pages.contact', compact('first', 'last'));
+        $names = ['abc', 'def', 'ghi', 'jkl'];
+        return view('pages.contact', compact('first', 'last', 'names'));
+    }
+
+    public function about()
+    {
+        $first = "Sagar";
+        $last = "Munot";
+        return view('pages/about')->with([
+            'first' => $first,
+            'last' => $last
+        ]);
     }
 }

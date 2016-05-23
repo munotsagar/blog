@@ -22,3 +22,5 @@ Route::get('/foo', function (){
 Route::get('/articles', 'ArticlesController@index');
 
 Route::get('/contact', 'WelcomeController@contact');
+
+Route::get('/about', 'WelcomeController@about');

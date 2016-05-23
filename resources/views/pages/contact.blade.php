@@ -1,45 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel</title>
+@extends('app')
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('content')
 
-    <style>
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
-
-        .container {
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
-
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
-
-        .title {
-            font-size: 96px;
-        }
-    </style>
-</head>
-<body>
-<div class="container">
+ <h1>Contact Us</h1>
     <div class="content">
         <div class="title">My Contact Page for {{$first}} {{$last}}</div>
+        <div>Names:</div>
+        <UL>
+            @foreach($names as $name)
+               <li> {{
+                $name
+                }}</li>
+            @endforeach
+        </UL>
     </div>
-</div>
-</body>
-</html>
+
+ @stop
+
+@section('footer')
+    <script>alert("Contact Us From");</script>
+@stop
