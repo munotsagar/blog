@@ -22,3 +22,15 @@ Laravel Migration
 13 $articles->update(['title' => 'New updated title', 'body' => 'New updated Body']);
 
 14 APP\Article::all()->toArray();
+
+15 $articles = APP\Article::findOrFail(2); 
+
+16 abort(404) to show error page
+
+17 <a href="/articles/{{$article->id}}"> {{$article->title}}</a>
+
+18 <a href="{{action('ArticlesController@show', [$article->id])}}"> {{$article->title}}</a>
+
+19 <a href="{{url('/articles/', $article->id)}}"> {{$article->title}}</a>
+
+20 

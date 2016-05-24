@@ -20,20 +20,20 @@
         }
 
         .container {
-            text-align: center;
+            /*text-align: center;*/
             display: table-cell;
-            vertical-align: middle;
-        }
+        /*vertical-align: middle;*/
+    }
 
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
+    .content {
+        text-align: center;
+        display: inline-block;
+    }
 
-        .title {
-            font-size: 96px;
-        }
-    </style>
+    .title {
+        font-size: 96px;
+    }
+</style>
 </head>
 <body>
 <div class="container">
