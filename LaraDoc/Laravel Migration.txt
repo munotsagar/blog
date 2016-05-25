@@ -73,3 +73,61 @@ Laravel Migration
 	OR
 	
 	Article::create($input);
+	
+23 Form Validation for Create Article Form
+
+	php artisan make:request ArticleRequest
+	
+	public function rules()
+    {
+        return [
+            'title' => 'required|min:3',
+            'body'  =>  'required',
+            'published_at'  =>  'required|date'
+        ];
+    }
+	
+24 add type hunting in controller class in method where actual data stored
+
+		public function store(CreateArticleRequest $request){
+		
+		Article::create($request->all());
+        return redirect('articles');
+		}
+		
+24 In view add below code to show error message
+	
+		 @if ($errors->any())
+        <ul class="alert alert-danger">
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
+	
+	
+25 php artisan route:list (List of all the routes in application)
+
+26 Route::resource('articles', 'ArticlesController'); 
+
+	With this line laravel understand and create all the dependent route for article module automatically.
+	add above line on route.php file and then fire below command also comment all other route for article
+	
+	$  php artisan route:list
++--------+-----------+--------------------------+------------------+-------------------------------------------------+------------+
+| Domain | Method    | URI                      | Name             | Action                                          | Middleware |
++--------+-----------+--------------------------+------------------+-------------------------------------------------+------------+
+|        | GET|HEAD  | /                        |                  | Closure                                         | web        |
+|        | GET|HEAD  | about                    |                  | App\Http\Controllers\WelcomeController@about    | web        |
+|        | POST      | articles                 | articles.store   | App\Http\Controllers\ArticlesController@store   | web        |
+|        | GET|HEAD  | articles                 | articles.index   | App\Http\Controllers\ArticlesController@index   | web        |
+|        | GET|HEAD  | articles/create          | articles.create  | App\Http\Controllers\ArticlesController@create  | web        |
+|        | DELETE    | articles/{articles}      | articles.destroy | App\Http\Controllers\ArticlesController@destroy | web        |
+|        | PUT|PATCH | articles/{articles}      | articles.update  | App\Http\Controllers\ArticlesController@update  | web        |
+|        | GET|HEAD  | articles/{articles}      | articles.show    | App\Http\Controllers\ArticlesController@show    | web        |
+|        | GET|HEAD  | articles/{articles}/edit | articles.edit    | App\Http\Controllers\ArticlesController@edit    | web        |
+|        | GET|HEAD  | contact                  |                  | App\Http\Controllers\WelcomeController@contact  | web        |
+|        | GET|HEAD  | foo                      |                  | Closure                                         | web        |
++--------+-----------+--------------------------+------------------+-------------------------------------------------+------------+
+
+	

@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 //use Illuminate\Http\Request;
 
 use Carbon\Carbon;
-use Request;
+//use Request;
 
 use App\Http\Requests;
 
 use App\Article;
+
+use  App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
@@ -19,6 +21,7 @@ class ArticlesController extends Controller
         //echo Carbon::now();
         //$articles   = Article::latest()->get();
         //$articles   = Article::latest('published_at')->where('published_at', '<=', Carbon::now())->get();
+        //$articles   = Article::latest('published_at')->unpublished()->get();
         $articles   = Article::latest('published_at')->published()->get();
         //$articles   = Article::order_by('published_at', 'desc')->get();
         return view('article.index', compact('articles'));
@@ -28,6 +31,10 @@ class ArticlesController extends Controller
     {
         //dd('Sagar');
         $article    =   Article::findOrFail($id);
+
+        //dd($article->created_at->addDays(8)->format('Y-m-d'));
+        //dd($article->created_at->addDays(8)->diffForHumans());
+        //dd($article->published_at);
         return view('article.show', compact('article'));
     }
 
@@ -37,7 +44,7 @@ class ArticlesController extends Controller
 
     }
 
-    public function store()
+    public function store(ArticleRequest $request)
     {
         //$input = Request::all();
         //$input = Request::get('title');
@@ -46,7 +53,22 @@ class ArticlesController extends Controller
 
         //$input['excerpt'] = "Auto excerpt";
 
-        Article::create(Request::all());
+        //Article::create(Request::all());
+        Article::create($request->all());
+        return redirect('articles');
+    }
+
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        //dd($article);
+        return view('article.edit', compact('article'));
+    }
+
+    public function update($id, ArticleRequest $request)
+    {
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
         return redirect('articles');
     }
 }

@@ -19,16 +19,18 @@ Route::get('/foo', function (){
     return "Bar";
 });
 
-Route::get('/articles', 'ArticlesController@index');
+/*Route::get('/articles', 'ArticlesController@index');
 
 Route::get('/articles/create', 'ArticlesController@create');
 
 Route::get('/articles/{id}', 'ArticlesController@show');
 
-Route::post('/articles/', 'ArticlesController@store');
+Route::post('/articles/', 'ArticlesController@store');*/
 
 
 
 Route::get('/contact', 'WelcomeController@contact');
 
 Route::get('/about', 'WelcomeController@about');
+
+Route::resource('articles', 'ArticlesController');

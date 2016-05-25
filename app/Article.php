@@ -14,6 +14,8 @@ class Article extends Model
         'published_at'
     ];
 
+    protected $dates    = ['published_at'];
+
     public function setPublishedAtAttribute($date)
     {
         //echo ($date);
@@ -29,5 +31,10 @@ class Article extends Model
     public function scopePublished($query)
     {
         $query->where('published_at', '<=', Carbon::now());
+    }
+
+    public function scopeUnpublished($query)
+    {
+        $query->where('published_at', '>=', Carbon::now());
     }
 }

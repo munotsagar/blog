@@ -7,6 +7,7 @@
         <article>
             <h3><a href="{{action('ArticlesController@show', [$article->id])}}"> {{$article->title}}</a></h3>
             <div>{{$article->body}}</div>
+            <div>{{$article->published_at}}</div>
         </article>
         @endforeach
     </div>
