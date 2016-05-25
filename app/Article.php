@@ -5,6 +5,10 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Article
+ * @package App
+ */
 class Article extends Model
 {
     /**
@@ -67,5 +71,16 @@ class Article extends Model
     public function scopeUnpublished($query)
     {
         $query->where('published_at', '>=', Carbon::now());
+    }
+
+    /**
+     * A article is owned by a user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     *
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 }
