@@ -1,3 +1,5 @@
+JefferyWay
+
 Laravel Migration
 •	Create new table :
 1.	Php artisan make:migration create_article_table --create="articles"
@@ -33,4 +35,41 @@ Laravel Migration
 
 19 <a href="{{url('/articles/', $article->id)}}"> {{$article->title}}</a>
 
-20 
+20 composer require illuminate/html
+
+	in view file need to add :
+	
+	{!! Form::open() !!}
+	
+	 <div class="form-group">
+    {!! Form::label('title', 'Name:') !!}
+    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+    </div>
+    
+	{!! Form::close() !!}
+	
+	E:\php\htdocs\blog\vendor\illuminate\html\HtmlServiceProvider.php
+	
+	in this file need to change :
+	
+	$this->app->bindShared('html', function($app) to $this->app->bindShared('html', function($app)
+	
+	and $this->app->bindShared('form', function($app) to $this->app->singleton('form', function($app)
+	
+	
+
+21 dd('Sagar'); to show message
+
+22 $article = new Article;
+	
+	$article->title = "New Title";
+	
+	$input = Request::all();
+	
+	$article->title = $input['title'];
+	
+	$article->save();
+	
+	OR
+	
+	Article::create($input);
