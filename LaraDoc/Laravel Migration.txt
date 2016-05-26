@@ -130,4 +130,15 @@ Laravel Migration
 |        | GET|HEAD  | foo                      |                  | Closure                                         | web        |
 +--------+-----------+--------------------------+------------------+-------------------------------------------------+------------+
 
-	
+27 php artisan migrate --path=Illuminate\Database\Migrations
+
+Note: If you receive a "class not found" error when running migrations, try running the :
+
+composer dump-autoload command.
+
+php artisan cache:clear
+composer clearcache
+composer dumpautoload 
+
+If you deleted the file you should delete the matching row from the migrations table in your DB. Don't delete a migration without doing migrate:reset first.
+
