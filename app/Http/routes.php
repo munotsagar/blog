@@ -33,4 +33,7 @@ Route::get('/contact', 'WelcomeController@contact');
 
 Route::get('/about', 'WelcomeController@about');
 
-Route::resource('articles', 'ArticlesController');
+Route::resource('/articles', 'ArticlesController');
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

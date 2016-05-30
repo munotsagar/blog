@@ -4,6 +4,6 @@
     {!! Form::open(['url' => 'articles']) !!}
     <!--{{ var_dump($errors) }}-->
     @include('errors.list')
-    @include('article.form', ['submitButtonText' => 'Add Article', 'published_at' => Carbon\Carbon::now()])
+    @include('article.form', ['submitButtonText' => 'Add Article', 'published_at' => date('Y-m-d')])
     {!! Form::close() !!}
 @stop

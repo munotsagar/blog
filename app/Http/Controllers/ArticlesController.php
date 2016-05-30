@@ -12,6 +12,7 @@ use App\Http\Requests;
 use App\Article;
 
 use  App\Http\Requests\ArticleRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller
 {
@@ -54,7 +55,9 @@ class ArticlesController extends Controller
         //$input['excerpt'] = "Auto excerpt";
 
         //Article::create(Request::all());
-        Article::create($request->all());
+        //Article::create($request->all());
+        $article = new Article($request->all());
+        Auth::user()->articles()->save($article);
         return redirect('articles');
     }
 

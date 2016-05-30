@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class Article
@@ -20,7 +21,10 @@ class Article extends Model
         'title',
         'body',
         'excerpt',
-        'published_at'
+        'published_at',
+        'user_id',
+        'first_name',
+        'last_name'
     ];
 
     /**
@@ -60,7 +64,10 @@ class Article extends Model
      */
     public function scopePublished($query)
     {
-        $query->where('published_at', '<=', Carbon::now());
+        //$query->where('published_at', '<=', Carbon::now());
+
+
+        $query->whereRaw('published_at <="'. Carbon::now(). '" and user_id ='. Auth::user()->id);
     }
     /**
      * Scope queries to articles that have not been published
@@ -70,7 +77,9 @@ class Article extends Model
      */
     public function scopeUnpublished($query)
     {
-        $query->where('published_at', '>=', Carbon::now());
+        //$query->where('published_at', '>=', Carbon::now());
+
+        $query->whereRaw('published_at >="'. Carbon::now(). '" and user_id ='. Auth::user()->id);
     }
 
     /**

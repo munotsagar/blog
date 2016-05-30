@@ -5,9 +5,10 @@ Laravel Migration
 1.	Php artisan make:migration create_article_table --create="articles"
 2.	Php artisan migrate(make changes)
 3.	composer require doctrine/dbal
-4.	php artisan make:migration add_excert_to_articles_table --table="articles"
+4.	php artisan make:migration add_excerpt_to_articles --table="articles"
 5.	Php artisan migrat:rollback
 6.  php artisan make:model Article
+	composer depends nikic/php-parser
 7.  php artisan tinker
 8.  $articles = APP\Article::where('body', 'some text')->get();
 9.  $article = new APP\Article;
@@ -132,9 +133,7 @@ Laravel Migration
 
 27 php artisan migrate --path=Illuminate\Database\Migrations
 
-Note: If you receive a "class not found" error when running migrations, try running the :
-
-composer dump-autoload command.
+Note: If you receive a "class not found" error when running migrations, try running the  command : composer dump-autoload
 
 php artisan cache:clear
 composer clearcache
@@ -142,3 +141,35 @@ composer dumpautoload
 
 If you deleted the file you should delete the matching row from the migrations table in your DB. Don't delete a migration without doing migrate:reset first.
 
+$user = new App\User;
+
+>>> $user->username = 'sagar';
+
+>>> $user->email = 'munot.sagar@gmail.com';
+
+
+>>> $user->password = bcrypt('sagarmunot');
+=> "←[32m$2y$10$cUaxQ7ApeSlYhdAlJR5ZA.YU8EE/eT2A07ZzIaEkhwtzxqwTjS5k2←[39m"
+>>> $user->save();
+
+
+$user->articles()->get()->toArray(); OR $user->articles()->toArray();
+
+php artisan make:auth
+
+-------------------------------------------------------------------------------------------------------------------
+Create REST base API in Laravel
+
+1	composer create-project restAPP --prefer-dist
+
+php artisan make:middleware simpleAuthMiddleware
+
+
+
+https://www.codetutorial.io/laravel-5-rest-api-basic-authentication/
+
+https://www.codetutorial.io/laravel-and-angularjs-token-based-auth-part1/
+
+https://laravel.com/docs/master/authentication#included-views
+
+https://laracasts.com/series/incremental-api-development/episodes/1

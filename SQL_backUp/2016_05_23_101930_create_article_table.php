@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUserFieldsToArticlesTable extends Migration
+class CreateArticleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,13 @@ class AddUserFieldsToArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('articleAbout');
+        Schema::create('articles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->string('title');
+            $table->text('body');
+            $table->text('excerpt');
+            $table->timestamp('published_at');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')
@@ -29,8 +34,6 @@ class AddUserFieldsToArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('user_id');
-        });
+        Schema::drop('articles');
     }
 }
