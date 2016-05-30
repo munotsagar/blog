@@ -173,3 +173,7 @@ https://www.codetutorial.io/laravel-and-angularjs-token-based-auth-part1/
 https://laravel.com/docs/master/authentication#included-views
 
 https://laracasts.com/series/incremental-api-development/episodes/1
+
+Rest api example :
+
+http://www.tutorials.kode-blog.com/laravel-5-angularjs-tutorial
