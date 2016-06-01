@@ -194,3 +194,7 @@ Run "composer update"
 https://packagist.org/search/?tags=can
 
 -----------------------------------------------------------------------------------------------------
+
+Install https://nodejs.org/en/ nodejs from this link
+
+command : npm install

@@ -50,10 +50,10 @@ class ArticlesController extends Controller
         return view('article.index', compact('articles'));
     }
 
-    public function show($id)
+    public function show(Article $article)
     {
         //dd('Sagar');
-        $article    =   Article::findOrFail($id);
+       // $article    =   Article::findOrFail($id);
 
         //dd($article->created_at->addDays(8)->format('Y-m-d'));
         //dd($article->created_at->addDays(8)->diffForHumans());
@@ -87,16 +87,16 @@ class ArticlesController extends Controller
         return redirect('articles');
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = Article::findOrFail($id);
+        //$article = Article::findOrFail($id);
         //dd($article);
         return view('article.edit', compact('article'));
     }
 
-    public function update($id, ArticleRequest $request)
+    public function update(Article $article, ArticleRequest $request)
     {
-        $article = Article::findOrFail($id);
+        //$article = Article::findOrFail($id);
         $article->update($request->all());
         return redirect('articles');
     }
