@@ -14,6 +14,9 @@ use App\Article;
 use  App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Auth;
 
+use Xabbuh\XApi\Client\XApiClientBuilder;
+
+
 class ArticlesController extends Controller
 {
     public function __construct()
@@ -22,6 +25,17 @@ class ArticlesController extends Controller
         //$this->middleware('auth', ['only' => 'create']);
         //$this->middleware('auth', ['except' => 'index']);
         $this->middleware('auth', ['only' => 'index']);
+
+        /*$builder = new XApiClientBuilder();
+        $xApiClient = $builder->setBaseUrl('http://mysite.sm/managercheck')
+            ->setAuth('sagarmunot', 'password')
+            ->build();
+        $statementsApiClient = $xApiClient->getStatementsApiClient();
+        $stateApiClient = $xApiClient->getStateApiClient();
+        $activityProfileApiClient = $xApiClient->getActivityProfileApiClient();
+        $agentProfileApiClient = $xApiClient->getAgentProfileApiClient();
+        echo "<pre>";
+        print_r($xApiClient);exit;*/
     }
 
     public function index()

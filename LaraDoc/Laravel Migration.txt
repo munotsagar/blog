@@ -177,3 +177,20 @@ https://laracasts.com/series/incremental-api-development/episodes/1
 Rest api example :
 
 http://www.tutorials.kode-blog.com/laravel-5-angularjs-tutorial
+
+------------------------------------- Remove packages from laravel -------------------------------
+
+The steps to remove a package from Laravel are:
+Remove declaration from composer.json (in "require" section)
+Remove Service Provider from "app/config/app.php" (reference in "providers" array)
+Remove any Class Aliases from "app/config/app.php"
+Remove any references to the package from your code :-)
+Run "composer update"
+
+----------------------------------------------------------------------------------------------------
+
+-------------------------------- XAPI ---------------------------------------------------------------
+
+https://packagist.org/search/?tags=can
+
+-----------------------------------------------------------------------------------------------------

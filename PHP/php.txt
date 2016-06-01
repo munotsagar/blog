@@ -1,0 +1,24 @@
+ 
+ 1 Different stpes of cacheing
+ 
+ 2 stickysession session
+ 
+ 3 session highjacking
+ 
+ 4 Garbage Collection
+ 
+ 5 Use of abstraction
+ 
+ 6 Use of interface
+ 
+ 7 difference between trigger and procedure
+ 
+ 8 xcss
+ 
+ 9 use of var_dump
+ 
+ 10 diff between echo and print
+ 
+ 11 magic methods
+ 
+ 12 

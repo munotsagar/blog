@@ -46,5 +46,5 @@ Route::resource('/articles', 'ArticlesController');
 
 Route::get('managercheck', ['middleware'=>'manager', function(){
 
-    return "This page may only see by manager";
+    return response()->json(['name' => 'Abigail', 'state' => 'CA']);
 }]);

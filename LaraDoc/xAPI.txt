@@ -17,3 +17,8 @@ https://github.com/php-xapi/client/blob/master/doc/client.md
 1 composer require php-xapi/client
 
 2 require __DIR__.'/vendor/autoload.php';
+
+
+Below URL will help to use this API
+
+https://packagist.org/search/?tags=can
