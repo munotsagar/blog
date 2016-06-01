@@ -1,0 +1,19 @@
+Rest API Integration
+
+https://www.codetutorial.io/laravel-5-rest-api-basic-authentication/
+
+
+ 1 php artisan make:migration create_table_todos --create="todos"
+ 
+ 2 php artisan migrate
+ 
+ 3 php artisan make:model Todo
+ 
+ 4 php artisan make:controller TodoController
+ 
+ 5 Rest API Auth Middleware
+	
+	* php artisan make:middleware simpleAuthMiddleware
+	
+	* will create file app\Http\Middleware\simpleAuthMiddleware.php
+	

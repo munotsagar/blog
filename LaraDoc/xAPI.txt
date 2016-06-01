@@ -1,0 +1,19 @@
+http://www.learningsolutionsmag.com/articles/1526/five-things-a-web-developer-needs-to-know-about-the-xapi 
+
+https://github.com/adlnet/xAPI-Spec/blob/1.0.3/xAPI.md 
+
+
+https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md
+
+https://github.com/adlnet/xAPI-Spec/blob/1.0.3/xAPI.md
+
+
+-------------------------------------------------------------------
+
+https://github.com/php-xapi/client
+
+https://github.com/php-xapi/client/blob/master/doc/client.md
+
+1 composer require php-xapi/client
+
+2 require __DIR__.'/vendor/autoload.php';

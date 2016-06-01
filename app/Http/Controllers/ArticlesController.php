@@ -16,6 +16,14 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller
 {
+    public function __construct()
+    {
+        //dd("Saggy Here");
+        //$this->middleware('auth', ['only' => 'create']);
+        //$this->middleware('auth', ['except' => 'index']);
+        $this->middleware('auth', ['only' => 'index']);
+    }
+
     public function index()
     {
         //$articles   = Article::all();
@@ -41,6 +49,10 @@ class ArticlesController extends Controller
 
     public function create()
     {
+        /*if(Auth::guest())
+        {
+            return redirect('articles');
+        }*/
         return view('article.create');
 
     }

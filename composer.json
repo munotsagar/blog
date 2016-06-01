@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "doctrine/dbal": "^2.5",
         "illuminate/html": "^5.0",
-        "psy/psysh": "^0.7.2"
+        "psy/psysh": "^0.7.2",
+        "php-xapi/client": "^0.1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

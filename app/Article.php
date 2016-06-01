@@ -32,7 +32,7 @@ class Article extends Model
      *
      * @var array
      */
-    protected $dates    = ['published_at'];
+    protected $dates    = ['published_at']; // $article->published_at->format('Y-m');
     /**
      * Set the published at attribute
      *
@@ -91,5 +91,5 @@ class Article extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
-    }
+    } // $article->user
 }

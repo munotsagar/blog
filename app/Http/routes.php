@@ -33,7 +33,18 @@ Route::get('/contact', 'WelcomeController@contact');
 
 Route::get('/about', 'WelcomeController@about');
 
-Route::resource('/articles', 'ArticlesController');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('api/todo', ['uses' => 'TodoController@index','middleware'=>'simpleauth']);
+
+Route::post('api/todo', ['uses' => 'TodoController@store','middleware'=>'simpleauth']);
+
+Route::resource('/articles', 'ArticlesController');
+
+Route::get('managercheck', ['middleware'=>'manager', function(){
+
+    return "This page may only see by manager";
+}]);
