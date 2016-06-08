@@ -4,18 +4,44 @@
     <title>Laravel</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url('resources/assets/css/bootstrap.min.css') }}">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url('resources/assets/css/bootstrap-theme.min.css') }}">
+
+
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="{{ url('resources/assets/js/bootstrap.min.js') }}"></script>
+    <link rel = "stylesheet" href="{{ url('resources/assets/css/app.css') }}">
+    <link rel = "stylesheet" href="{{ url('resources/assets/css/select2.min.css') }}" rel="stylesheet" />
+
 </head>
 <body>
+@include('partials.nav')
 <div class="container">
-    @yield('content')
+{{-- @if (Session::has('flash_message'))
+      <div class = "alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
+          @if (Session::has('flash_message_important'))
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          @endif
+          {{ Session::get('flash_message') }}
+      </div>
+  @endif --}}
+
+    @include('flash::message')
+
+  @yield('content')
 </div>
+<script>
+
+ // $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+
+    $('#flash-overlay-modal').modal();
+
+</script>
+<script src="{{ url('resources/assets/js/jquery.js') }}"></script>
+<script src="{{ url('resources/assets/js/select2.min.js') }}"></script>
 
 @yield('footer')
 </body>

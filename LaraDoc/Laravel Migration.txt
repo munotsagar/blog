@@ -197,4 +197,80 @@ https://packagist.org/search/?tags=can
 
 Install https://nodejs.org/en/ nodejs from this link
 
+to check node js install : node -v
+
 command : npm install
+
+npm rebuild node-sass
+
+gulp
+
+
+install scss :
+
+	1 install ruby 
+	
+	2 go to ruby/bin location on command line C:\Ruby23\bin\
+	
+	3 run this command : gem install sass
+	
+	
+28 composer require laracasts/flash
+
+	php artisan make:model Tag
+	
+	php artisan make:migration create_tags_table --create=tages
+	
+	App\Tag::lists('name');
+	
+	
+	In Article model file we can write this method :
+	
+		public function tags()
+		{
+			return $this->belongsToMany('App\Tag')->withTimestamps();
+		}
+		
+		reboot php artisan tinker
+		
+		$article = App\Ariticle::first();
+		
+		$article->tags()->attach(1);
+		
+		
+		DB::select('select * from article_tag');
+		
+		$article->tags->toArray();
+		
+		
+29 Model Binding
+
+	E:\php\htdocs\blog\app\Providers\RouteServiceProvider.php
+	
+	 public function boot(Router $router)
+    {
+        //
+
+        parent::boot($router);
+
+        $router->model('articles', 'App\Article'); // add this line to get article id without fething this from URL
+    }
+	
+30 php artisan make:controller PagesController 	
+
+31 Route::get('test', function(){
+	echo "<form method = 'POST' action = 'test'>";
+	echo "<input type = 'submit'>";
+	echo "<input type = 'hidden' value = 'PUT' name = '_method'>";
+	echo "</form>";
+});
+
+32 brew install wget    (this will help to fetch online files in to particuler folder)
+
+command line :
+
+wget https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js
+
+Bootstrap Starer Template for Navigation Bar
+
+http://getbootstrap.com/examples/starter-template/

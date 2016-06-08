@@ -1,0 +1,62 @@
+Create REST API To Store URL
+
+http://code.tutsplus.com/tutorials/laravel-4-a-start-at-a-restful-api-updated--net-29785
+
+$ php artisan make:migration create_urls_table --create=urls
+
+php artisan db:seed --class=UsersTableSeeder
+
+
+php artisan make:seeder UsersTableSeeder
+
+composer dump-autoload
+
+php artisan db:seed
+
+
+http://laraveldaily.com/auth-login-with-username-instead-of-email/
+
+All we need is add a property in app/Http/AuthController.php: 
+
+protected $username = 'username';
+
+
+ Illuminate\Foundation\Auth\AuthenticatesUsers.php
+ 
+     public function postLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->loginUsername() => 'required', 'password' => 'required',
+        ]);
+		
+	    public function loginUsername()
+    {
+        return property_exists($this, 'username') ? $this->username : 'email';
+    }	
+		
+
+
+curl --user firstuser:firstuser http://mysite.sm/index.php/authtest
+
+curl --user firstuser@firstuser.com:firstuser http://mysite.sm/index.php/authtest
+
+
+php artisan make:controler
+
+php artisan make:controller UrlController 
+
+
+$ curl -i --user firstuser:firstuser -d 'url=http://google.com&description=A Search Engine'  http://mysite.sm/api/v1/url
+
+
+
+API Client Call with core PHP
+
+https://support.ladesk.com/061754-How-to-make-REST-calls-in-PHP
+
+Route::get('test', function(){
+	echo "<form method = 'POST' action = 'test'>";
+	echo "<input type = 'submit'>";
+	echo "<input type = 'hidden' value = 'PUT' name = '_method'>";
+	echo "</form>";
+});

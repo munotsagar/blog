@@ -4,7 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
+
+
 
 use Illuminate\Http\Response;
 
@@ -20,22 +22,38 @@ class simpleAuthMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        //return $next($request); // Defeult Single line
+
+        
         //return Auth::onceBasic('username') ?: $next($request);
         //dd($request);
-        $credentials = ['username' => 'sagarmunot', 'password' => 'password'];
+        echo $request->username;
+
+        //exit;
+        $credentials = ['username' => $request->username, 'password' => $request->password];
         //$request->username = "sagarmunot";
         //$request->password = "password";
         //return Auth::validate($credentials) ?: $next($request);
-        if(Auth::validate($credentials) == true) {
+        //
+        //$id = Auth::user()->id;
+        $kk = new Auth();
+        $kk::attempt($credentials);
+        //dd($kk::user()->id);
+        //dd(Auth::user()->id);
+
+
+        if($kk::attempt($credentials) == true) {
             return $next($request);
         }else{
-
-        }
-
-        dd($response);
-        if($response) {
-            return response($response);
+           // dd("Sagar here");
+            /*return $response = array(
+                "error"=> false,
+                "message" => "Invalid credentials!!!"
+            );*/
+            return response()->json(array(
+                "error"=> true,
+                "message" => "Invalid credentials!!!"
+            ));
         }
     }
 }

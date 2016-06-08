@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://mysite.sm/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -155,6 +155,8 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
 
     ],
 
@@ -203,6 +205,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Illuminate\Html\FormFacade::class,
         'Html' => Illuminate\Html\HtmlFacade::class,
+        'Flash' => Laracasts\Flash\Flash::class,
 
     ],
 

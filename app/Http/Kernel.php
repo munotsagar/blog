@@ -28,7 +28,7 @@ class Kernel extends HttpKernel
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
+            /*\App\Http\Middleware\VerifyCsrfToken::class,*/
         ],
 
         'api' => [
@@ -51,5 +51,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'demo'  =>  \App\Http\Middleware\Demo::class,
         'manager' => \App\Http\Middleware\RedirectIfNotManager::class,
+        'simpleauth' => \App\Http\Middleware\simpleAuthMiddleware::class,
     ];
 }
