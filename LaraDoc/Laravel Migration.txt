@@ -274,3 +274,44 @@ wget https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js
 Bootstrap Starer Template for Navigation Bar
 
 http://getbootstrap.com/examples/starter-template/
+
+33 composer require alexdover/blade-set
+
+	use variable assignment in blade file like below :
+	
+	@set('week', 0);
+
+		@foreach ($things as $thing)
+		  @if ($week != $thing->week)
+			WEEK {{ $thing->week }}
+			@set('week', $thing->week)
+		  @endif
+
+		  Title: {{ $thing->title }}
+		@endforeach
+	
+	@set('my_model_list', MyModel::where('something', '=', 1)->paginate(10))
+	
+34 Use counter in blade file 
+
+	https://github.com/laravel/framework/issues/4778
+	
+	https://github.com/sineld/bladeset
+	
+	Installation
+
+	Require this package in your composer.json.
+
+	"sineld/bladeset": "5.2.*@dev"
+	Update composer. This will download the package.
+
+	composer update
+	Add the BladeSetServiceProvider to the providers array in app/config/app.php.
+
+	Sineld\BladeSet\BladeSetServiceProvider::class,
+	(Optional) Publish package config.
+
+	php artisan vendor:publish
+	Then edit app/config/bladeset.php accoring to your needs.
+
+	All done!

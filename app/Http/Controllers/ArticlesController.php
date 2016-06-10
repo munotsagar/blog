@@ -133,7 +133,7 @@ class ArticlesController extends Controller
         //$article->tags()->sync($request->input('taglist'));
 
         $this->syncTags($article, $request->input('taglist'));
-
+        flash()->overlay('Your article has been successfully updated!', 'Good Job');
         //$article->tags()->detach($request->input('taglist'));
         return redirect('articles');
     }

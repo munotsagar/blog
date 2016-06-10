@@ -39,7 +39,7 @@
                 { id: 'one', text: 'One' }
                 { id: 'two', text: 'Two' }
             ]*/
-            ajax: {
+           /* ajax: {
                 dataType: 'json',
                 url: 'api/tags',
                 delay: 250,
@@ -48,7 +48,7 @@
                         q: params.term
                     }
                 }
-            }
+            }*/
         });
     </script>
 @stop

@@ -85,6 +85,8 @@ Route::post('api/todo', ['uses' => 'TodoController@store','middleware'=>'simplea
 
 Route::resource('/articles', 'ArticlesController');
 
+Route::resource('/blog', 'BlogController');
+
 Route::get('managercheck', ['middleware'=>'manager', function(){
 
     return response()->json(['name' => 'Abigail', 'state' => 'CA']);

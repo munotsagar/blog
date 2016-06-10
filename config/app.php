@@ -157,6 +157,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
+        Sineld\BladeSet\BladeSetServiceProvider::class,
 
     ],
 
