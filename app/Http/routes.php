@@ -21,6 +21,10 @@ class SecondBar implements BarInterface{}
 
 App:bind('BarInterface', 'Bar');*/
 
+Route::get('tags/{tags}', 'TagController@show');
+
+Route::get('/serviceContainer', 'ServiceContainerController@serviceContainer');
+
 Route::get('bar', function (BarInterface $bar){
     dd($bar);
 });

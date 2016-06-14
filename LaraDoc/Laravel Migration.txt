@@ -315,3 +315,30 @@ http://getbootstrap.com/examples/starter-template/
 	Then edit app/config/bladeset.php accoring to your needs.
 
 	All done!
+
+35 If we want to send data directly to View then create new provider file under :
+
+
+	php artisan make:provider ViewComposerServiceProvider
+
+	
+	app/Providers/ViewComposerServiceProvider.php
+	
+	 public function composeNavigation()
+    {
+        view()->composer('partials.nav', function ($view){
+
+            $view->with('latest', \App\Article::latest()->first());
+
+        });
+
+        //view()->composer('partials.nav', 'App\Http\Composers\NavigationComposer');
+    }
+	
+	resources/views/partials/nav.blade.php
+	
+	<ul class="nav navbar-nav navbar-right">
+		<li>{!! link_to_action('ArticlesController@show', $latest->title, [$latest->id])
+		!!}}</li>{{--$latest value will be fetch from E:\php\htdocs\blog\app\Providers\AppServiceProvider.php
+		 from boot method --}}
+	</ul>

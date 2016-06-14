@@ -1,0 +1,16 @@
+rying on my own to Delete an Article - here is the controller:
+public function destroy($article)
+{
+$article->tags()->detach();
+$article->delete();
+Session::flash('message','Article was deleted');
+return redirect('articles');
+}
+
+and here is the Delete button on show.blade.php page. It needs to be within its own form (weird)
+
+{!! Form::open(['method' => 'DELETE', 'route'=> ['articles.destroy', $article->id]]) !!}
+{!! Form::submit ('Delete Article', ['class' => 'btn btn-danger']) !!}
+{!! Form::close() !!}
+
+Hope this helps anyone wanting to add this feature to the tutorial. And thanks Jeffrey Way!
