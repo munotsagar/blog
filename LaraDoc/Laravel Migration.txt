@@ -342,3 +342,30 @@ http://getbootstrap.com/examples/starter-template/
 		!!}}</li>{{--$latest value will be fetch from E:\php\htdocs\blog\app\Providers\AppServiceProvider.php
 		 from boot method --}}
 	</ul>
+	
+	
+36 Create new instance of Laravel
+
+		laravel new ParojectName
+		
+37 Change domain name  command :
+
+	homestead edit
+	
+		> In Sites doplicate map and to values
+		
+38 After making changes in that file fire below command :
+
+	homestead provision
+	
+	
+39 Host Setup
+
+		sudo vi /etc/hosts
+		
+		add entry Ip address with project url
+		
+		
+40 To see git ignored files
+			
+	cat .gitignore
