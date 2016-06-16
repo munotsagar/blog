@@ -3,12 +3,12 @@
     <h1>Blog List</h1>
     <table class="table">
         <thead>
-        <tr>
+        {{--<tr>
             <th colspan="2"><h4><a href="{{ url('/blog/create') }}">Add New</a></h4></th>
 
             <th></th>
             <th></th>
-        </tr>
+        </tr>--}}
         <tr>
             <th>Sr. No</th>
             <th>Blog Name</th>

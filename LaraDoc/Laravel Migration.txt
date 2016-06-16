@@ -1,5 +1,11 @@
 JefferyWay
 
+composer create-project laravel/laravel bbloger --prefer-dist
+
+php artisan key:generate
+
+composer update
+
 Laravel Migration
 •	Create new table :
 1.	Php artisan make:migration create_article_table --create="articles"
@@ -369,3 +375,6 @@ http://getbootstrap.com/examples/starter-template/
 40 To see git ignored files
 			
 	cat .gitignore
+	
+	
+	vi /etc/httpd/conf/httpd.conf

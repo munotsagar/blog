@@ -154,4 +154,24 @@ class ArticlesController extends Controller
         $this->syncTags($article, $request->input('taglist'));
         return $article;
     }
+
+    public function destroy(Article $article)
+    {
+        //dd("Saggy here");
+        try {
+            $article->delete();
+            return response()->json(array(
+                'response' => array(
+                    'error' => false
+                )));
+        }
+        catch(\Exception $e){
+            return response()->json(array(
+                'response' => array(
+                    'error' => true
+                )));
+        }
+
+
+    }
 }

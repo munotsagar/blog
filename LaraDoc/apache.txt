@@ -1,0 +1,30 @@
+cd /etc/init.d/ && sudo apachectl restart
+
+sudo /etc/init.d/apachectl restart
+
+
+cd /etc/httpd/conf/ && sudo vi httpd.conf
+
+
+NameVirtualHost ec2-54-226-70-79.compute-1.amazonaws.com/ilrs:80
+<VirtualHost ec2-54-226-70-79.compute-1.amazonaws.com/ilrs:80>
+  DocumentRoot /home/ec2-user/ilrs
+  ServerName ec2-54-226-70-79.compute-1.amazonaws.com/ilrs
+</VirtualHost>
+<VirtualHost localhost:80>
+  DocumentRoot E:\php\htdocs
+  ServerName localhost
+</VirtualHost>
+
+NameVirtualHost ilrs.iel:80
+<VirtualHost ilrs.iel:80>
+  DocumentRoot /home/ec2-user/ilrs
+  ServerName ilrs.iel
+</VirtualHost>
+
+
+NameVirtualHost ilrs.iel:80
+<VirtualHost ilrs.iel:80>
+  DocumentRoot /home/ec2-user/ilrs
+  ServerName ilrs.iel
+</VirtualHost>

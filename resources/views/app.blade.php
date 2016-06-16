@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel</title>
+    <title>iLRS</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{ url('resources/assets/css/bootstrap.min.css') }}">
