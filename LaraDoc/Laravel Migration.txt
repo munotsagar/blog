@@ -378,3 +378,8 @@ http://getbootstrap.com/examples/starter-template/
 	
 	
 	vi /etc/httpd/conf/httpd.conf
+	
+	
+41 Move composer file at global location so we can use from any location
+
+		mv composer.phar /usr/local/composer

@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Auth;
 
 use Xabbuh\XApi\Client\XApiClientBuilder;
 
+use Illuminate\Pagination\Paginator;
+
 /**
  * Class ArticlesController
  * @package App\Http\Controllers
@@ -52,11 +54,20 @@ class ArticlesController extends Controller
         //$articles   = Article::latest()->get();
         //$articles   = Article::latest('published_at')->where('published_at', '<=', Carbon::now())->get();
         //$articles   = Article::latest('published_at')->unpublished()->get();
-        $articles   = Article::latest('published_at')->published()->get();
+        $perPage = 5;
+        $page = 1;
+        if(isset($_GET['page']))
+        {
+            $page = ($_GET['page']*$perPage)-($perPage-1);
+
+        }
+
+        //$page = ($_GET['page'])?$_GET['page']:0;
+        $articles   = Article::latest('published_at')->published()->paginate($perPage);
 
         $latest = Article::latest()->first();
         //$articles   = Article::order_by('published_at', 'desc')->get();
-        return view('article.index', compact('articles', 'latest'));
+        return view('article.index', compact('articles', 'latest', 'page'));
     }
 
     public function show(Article $article)

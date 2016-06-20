@@ -30,7 +30,8 @@
         </tr>
         </thead>
         <tbody>
-        @set('i', 1)
+
+        @set('i', $page)
         @foreach($articles as $article)
             <tr class="success">
                 {{--{{ dd($blog) }}--}}
@@ -48,6 +49,8 @@
         @endforeach
         </tbody>
     </table>
+    <div class="pagination"> {{ /*$articles->links()*/
+     $articles->render() }} </div>
 @stop
 
 @section('footer')
